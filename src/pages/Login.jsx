@@ -23,7 +23,7 @@ export function Login () {
     return (
         <div className='container-login flex h-4/5 w-3/6 m-auto py-10'>
         <div className='login bg-gray-900 w-full h-full flex flex-col gap-5 items-center rounded-3xl p-10'>
-            <h1 className='text-5xl text-green-300 font-semibold'>LegalLine-Chat</h1>
+            <h1 className='text-5xl text-green-300 font-semibold'>LegalLine-Chat 2</h1>
             {loginError && <p className='mensaje-error'>{loginError}</p>} 
             
             <form className='login-form flex flex-col gap-6 t-5' 

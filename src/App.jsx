@@ -29,7 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<IsThereToken />}>
-            <Route path='/login' element={<Login />} />
+            <Route path='/login' exact element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/recovery-pass' element={<RecoveryPass />}/>
             <Route path='/new-password' element={<NewPassword />}/>
