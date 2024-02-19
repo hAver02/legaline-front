@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL : "http://85.31.61.130:3000/",
+    baseURL : "https://srv471383.hstgr.cloud:3000/",
     withCredentials : true
 })
 

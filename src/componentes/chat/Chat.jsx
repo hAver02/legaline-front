@@ -10,7 +10,7 @@ import { FormularioChat } from "./FormularioChat"
 
 import { ChatContext } from "../../context/chatContext"
 import { useChat } from "../../hooks/useChat"
-const socket = io("http://85.31.61.130:3000")
+const socket = io("https://srv471383.hstgr.cloud:3000/")
 
 
 export function Chat ({currentChat}) {

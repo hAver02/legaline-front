@@ -10,7 +10,7 @@ export function Alarmas() {
     return(
         <section className="flex flex-col gap-2 mr-2 h-full">
             <div className="px-3 text-center rounded-3xl bg-pink-200 py-5">
-                <h1 className="text-gray-500 text-3xl font-semibold mb-5">Legal-Line Chat</h1>
+                <h1 className="text-gray-500 text-3xl font-semibold mb-5">Legal-Line Chat.</h1>
                 <p className="text-black text-xl font-normal">Esta aplicación te permite centralizar casos legales, chats y cálculos.</p>
                 <p className="text-black text-xl font-normal">Te simplifica la colaboración entre colegas abogados y optimiza tu práctica legal.</p>
             </div>

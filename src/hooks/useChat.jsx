@@ -18,7 +18,7 @@ export function useChat({currentChat}){
         }else{
             setMessages(messags)
         }
-        fetch(`http://85.31.61.130/chat/${currentChat}`)
+        fetch(`https://srv471383.hstgr.cloud:3000/chat/${currentChat}`)
         .then(res => res.json())
         .then(data => {
             if(data.ok){
