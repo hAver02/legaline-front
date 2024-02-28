@@ -9,7 +9,7 @@ export function useAuthValidation (){
     const { setCasos } = useContext(CasosContext)
     useEffect(() => {
         if(idUser == "") return 
-        fetch(`http://85.31.61.130:3000/user/${idUser}`)
+        fetch(`https://85.31.61.130:3000/user/${idUser}`)
         .then(res => res.json())
         .then(data => {
             if(!data.ok) return // Mostrar algun tipo de error.
