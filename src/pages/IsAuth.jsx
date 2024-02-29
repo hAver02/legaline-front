@@ -19,7 +19,7 @@ export function IsAuth() {
 
 export function IsThereToken () {
     // console.log('hola');
-    const {isAuth, setIsAuth} = useContext(UserContext)
+    const {isAuth, setIsAuth, setIdUser} = useContext(UserContext)
     const navigate = useNavigate()
 
     async function checkToken (){
