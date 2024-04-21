@@ -48,8 +48,9 @@ export function FormAlarmas(){
         </div>
     )
 }
-export function FormAddFriend(){
-    const {  user } = useContext(UserContext)
+
+export function FormAddFriend({currentChat}){
+    const { user } = useContext(UserContext)
     const {idCaso} = useContext(CasosContext)
     const {usersChat, chat, setUserChat, setForms} = useContext(ChatContext)
     const usuariosParaAgregar = () => {
@@ -59,21 +60,19 @@ export function FormAddFriend(){
     }
     
     const addFriend = async (idUser, nombreUser) => {
-        // console.log(e);
         const rta = await addCaseToUser(idUser, idCaso[0])
-        console.log(rta);
         if (rta.data.ok) {
-            const rtaII = await addUserToChat(idUser, chat[0] )
-            console.log(rtaII);
+            const rtaII = await addUserToChat(idUser, currentChat)
+
             if(rtaII.data.ok){
                 setUserChat([...usersChat, {id : idUser, nombre : nombreUser}])
                 setForms('')
             }
+            // else mostrar error
         }
     
 
     }
-    // console.log(usuariosParaAgregar());
     return (
         <div className='flex flex-col items-center gap-6 '>
             <h3 className='font-bold text-2xl text-green-300'>AGREGAR AMIGO AL {idCaso[1].toUpperCase()}</h3>
@@ -94,14 +93,7 @@ export function FormAddFriend(){
 
 }
 
-
-
-
-
-
-
-
-export function FormularioChat(){
+export function FormularioChat({currentChat}){
     const {forms, setForms} = useContext(ChatContext)
     return(
         <section className='flex flex-col mt-5 '>
@@ -112,7 +104,7 @@ export function FormularioChat(){
             </div>
             {forms === "alarma" 
             ? <FormAlarmas /> 
-            : <FormAddFriend />}
+            : <FormAddFriend currentChat={currentChat} />}
         
         </section>
     )

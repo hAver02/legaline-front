@@ -2,12 +2,11 @@ import { useContext, useState } from "react"
 import { CasosContext } from "../context/casoContext"
 import { getDate, getDaysInMonth, parseISO } from "date-fns"
 
+export  function useCasoTrabajo(handleEditUser, addWork, setAddWork){
 
-export function useCasoTrabajo(handleEditUser){
     const { datosCaso, isEditing, setDatosCaso }  = useContext(CasosContext)
 
     const periodoTrabajo = datosCaso.periodosTrabajados || []
-    const [addWork, setAddWork] = useState(false)
     const [newWork, setNewWork] = useState({})
     const [actualidadNewWork, setActualidadNewWork] = useState(false)
 
@@ -52,7 +51,6 @@ export function useCasoTrabajo(handleEditUser){
         const ind = periodoTrabajo.findIndex(tra => tra.lugar === lugar)
         if (ind == -1) return //error al no poder eliminar
         periodoTrabajo.splice(ind,1)
-        // const copiaInfoCaso = structuredClone(datosCaso)
 
         setDatosCaso({...datosCaso, periodosTrabajados : periodoTrabajo})
         handleEditUser(datosCaso)
@@ -60,7 +58,6 @@ export function useCasoTrabajo(handleEditUser){
 
     }
     const cantDays = (fechaDesde, fechaHasta) => {
-        // console.log(fechaHasta, fechaDesde);
         const fechaDesdeParsed = parseISO(fechaDesde)
         const fechaHastaParsed = parseISO(fechaHasta) 
 
@@ -79,6 +76,6 @@ export function useCasoTrabajo(handleEditUser){
 
     return {
         periodoTrabajo ,isEditing, actualidadNewWork, handleInputChangeTrabajo, handleAddWork, 
-        changeNewWork,addWorkToCase, eliminarTrabajo, cantDays, addWork, newWork
+        changeNewWork,addWorkToCase, eliminarTrabajo, cantDays, addWork, newWork, setActualidadNewWork
     }
 }

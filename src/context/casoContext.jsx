@@ -10,7 +10,6 @@ export function CasosProvider ({ children }) {
     
     const [datosCaso, setDatosCaso] = useState({})
     const [isEditing, setIsEditing] = useState(false)
-
     return (
         <CasosContext.Provider value={{casos, setCasos, infoCaso, setInfoCaso, idCaso, setIdCaso,
             datosCaso, setDatosCaso, isEditing, setIsEditing

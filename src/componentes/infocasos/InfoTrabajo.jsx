@@ -4,14 +4,14 @@ import { differenceInYears, differenceInMonths} from 'date-fns'
 
 import { useCasoTrabajo } from '../../hooks/useCasoTrabajo'
 
-export function InfoTrabajo({ handleEditUser }) {
-    // console.log(datosCaso);
+export function InfoTrabajo({ handleEditUser, addWork, setAddWork }) {
     const {periodoTrabajo ,isEditing, actualidadNewWork, handleInputChangeTrabajo, handleAddWork,
-         changeNewWork,addWorkToCase, eliminarTrabajo, cantDays, addWork, newWork} = useCasoTrabajo(handleEditUser)
+         changeNewWork,addWorkToCase,  setNewWork,eliminarTrabajo, cantDays, newWork, setActualidadNewWork} = useCasoTrabajo(handleEditUser, addWork, setAddWork)
 
     return (
         <form className='form-trabajo w-full flex flex-col gap-2 px-2'>  
             {/* VALIDAR QUE HAYA TRABAJOS */}
+            
             <div>
                 <h3 className='text-center text-xl font-bold text-pink-300'>PERIODOS DE TRABAJO</h3>
             </div>
@@ -116,7 +116,8 @@ export function InfoTrabajo({ handleEditUser }) {
                     </div>  
                 </div>
                 <div className='flex justify-around m-2'>
-                        <button className=' w-1/5 py-1 rounded-2xl bg-red-400 text-black hover:bg-red-500' onClick={() => {
+                        <button className=' w-1/5 py-1 rounded-2xl bg-red-400 text-black hover:bg-red-500' onClick={(e) => {
+                            e.preventDefault()
                             setActualidadNewWork(false)
                             setAddWork(false)
                             setNewWork({})

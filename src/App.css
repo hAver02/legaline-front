@@ -20,24 +20,14 @@
 .section-derecha{
   flex: 2;
 }
-/* ESTO VAAA */
-/* LISTA DE CASOS */
-/* .lista-casos button{
-  padding: 0.5rem;
-  background-color: #666;
-  border-radius: 50%;
-} */
+
 .lista-casos button:hover {
   background-color: rgb(143, 240, 143);
 }
-/* molesta */
-/* .main{
-  height: 100%; 
-} */
+
 .container-casos{
-  /* max-height: 80vh; */
   height: 85vh;
-  /* overflow-y: auto; */
+
 }
 
 .body-alarmas {

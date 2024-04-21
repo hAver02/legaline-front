@@ -1,10 +1,11 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useMemo } from "react"
 import { CasosContext } from "../context/casoContext"
 import { getMessagesByChats, updateMessagesLeidos } from "../api/auth"
 import { ChatContext } from "../context/chatContext"
 import { UserContext } from "../context/userContext"
 import { useNavigate  } from 'react-router-dom'
-export function useListaCasos ({searchCaso}){
+
+export function useListaCasos ({searchCaso, tipoCasoSearch}){
     const navigate = useNavigate()
     const {casos} = useContext(CasosContext)
     const {setMessagesForChat, messagesForChat} = useContext(ChatContext)
@@ -28,17 +29,24 @@ export function useListaCasos ({searchCaso}){
                 }
                 mensajesPorChat[chatId].push(mensaje);
             });
-            // console.log(mensajesPorChat);
-            setMessagesForChat(mensajesPorChat)
+            setMessagesForChat(mensajesPorChat);
         }
 
         getMessages()
     }, [casos])
+    
+    // const seleccionCasos = 
+    // const filterCasos = casos.length > 0 ? casos.filter(caso => caso.tipo == tipoCasoSearch).filter(caso => caso?.apellido.toLowerCase().includes(searchCaso.toLowerCase())) : casos 
+    const filterCasos = useMemo(() => {
+        if(casos.length == 0) return [];
 
-    const filterCasos = casos.length > 0 ? casos.filter(caso => caso?.apellido.toLowerCase().includes(searchCaso.toLowerCase())) : casos 
+        const casosTipo = casos.filter(caso => caso?.tipo==tipoCasoSearch);
+        return casosTipo.filter(caso => caso?.apellido.toLowerCase().includes(searchCaso.toLowerCase()))
+
+    }, [tipoCasoSearch, searchCaso, casos])
     
     const addCaso = () => {
-        navigate('/addcase')
+        navigate('/addcase');
     }
 
     const isThereNoti = (idChat) => {

@@ -73,9 +73,7 @@ export function DropMenu () {
         {agregarAmigo && (
                     <form className="add-friend-form absolute top-full right-0 bg-gray-600 flex flex-col gap-3 items-center w-[250px] py-3" 
                         onSubmit={handleSubmit(async (values) => {
-                            console.log(values);
                             const rta = await addFriend(values.emailFriend)
-                            console.log(rta);
                             if (!rta.data.ok) setError(true)
                             else setSolicitud(true)                        
                     })}>

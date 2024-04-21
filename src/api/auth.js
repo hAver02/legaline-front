@@ -19,7 +19,7 @@ export const addCaseToUser = (idUser, idCase) => axios.put('user/addCase/user', 
 export const changePassword = (password, password2, token) => axios.post('user/changePassword', {password, password2, token })
 
 export const addUserToChat = (idUser, idChat) => axios.put(`chat/${idChat}/addUser/${idUser}`)
-
+export const getChat = (id) => axios.get(`chat/${id}`)
 export const createNoti = (notificacion) => axios.post('notificaciones/', notificacion)
 
 export const getNotisById = (ids) => axios.get(`notificaciones/getAlarmas/${ids}` )

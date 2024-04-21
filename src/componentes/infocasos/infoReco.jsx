@@ -4,7 +4,7 @@ import { CasosContext } from "../../context/casoContext"
 
 export function InfoReco ({ handleInputChange }) {
     const {datosCaso, isEditing, setDatosCaso} = useContext(CasosContext)
-
+    if(datosCaso.tipo === "judicial") return
     const changeJubilacion = (e) => {
         setDatosCaso({...datosCaso, tipoJubilacion : e.target.value})
     }

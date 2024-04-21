@@ -3,8 +3,7 @@ import { CasosContext } from "../../context/casoContext"
 
 
 export function InfoPersonal ( { handleInputChange } ) {
-    // console.log(datosCaso);
-    const { datosCaso, isEditing} = useContext(CasosContext)
+  const { datosCaso, isEditing} = useContext(CasosContext)
     return (
         <form className="form-personal flex flex-wrap gap-5 w-full rounded-2xl justify-between items-center py-1 px-5">
             <div className="flex flex-col items-start gap-2">

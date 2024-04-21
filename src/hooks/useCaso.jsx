@@ -10,17 +10,19 @@ export function useCaso(caso) {
         const rta = await getCase(caso)
         if(rta.data.ok) return setDatosCaso({...rta.data.caso, fechaNac : formatDateToYYYYMMDD(rta.data.caso.fechaNac)})
       }
-      getInfoCase()
+      getInfoCase();
     }, [caso])
     
     const handleEditing = () => {
-      setIsEditing(!isEditing)
+      setIsEditing(!isEditing);
     }
-      const handleEditUser = async (newCaso) => {
+
+    const handleEditUser = async (newCaso) => {
         const updated = await updatedCaso(newCaso, caso)
         setDatosCaso(newCaso)
-      };
-      const handleInputChange = (e) => {
+    };
+
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         if(name == 'fechaNac'){
           if(isValidDateFormat(value)){
@@ -45,24 +47,26 @@ export function useCaso(caso) {
           setDatosCaso({ ...datosCaso, [name]: value });
         }
       };
-      const handleEditButtonClick = (e) => {
-        e.preventDefault()
+
+    const handleEditButtonClick = (e) => {
+        e.preventDefault();
         setIsEditing(true);
-      };
-      const handleSaveButtonClick = (e) => {
+    };
+    const handleSaveButtonClick = (e) => {
         e.preventDefault()
           setIsEditing(false);
           handleEditUser(datosCaso);
       
-      };
-      const addClave = () => {
+    };
+    const addClave = () => {
         let numeroRandom = Math.floor(Math.random() * 100) + 1;
         numeroRandom = numeroRandom.toString()
         claves.push( {nombre : numeroRandom , contraseña : 'Ingresar contraseña' } )
         const newCaso = {... datosCaso, claves : claves}
         setDatosCaso(newCaso)
         handleEditUser(newCaso)
-      }
+    }
+
     const claves = datosCaso?.claves || []
     return { claves, addClave, handleEditButtonClick, handleSaveButtonClick, handleInputChange, handleEditUser, isEditing, handleEditing }
 }

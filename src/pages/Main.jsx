@@ -2,11 +2,7 @@
 import { Chat } from '../componentes/chat/Chat'
 import { ListaDeCasos } from '../componentes/ListaDeCasos'
 import { Alarmas } from '../componentes/Alarmas'
-// import { Header } from '../componentes/header/Header'
 import  { InfoCaso } from '../componentes/infocasos/InfoCaso'
-// import { AddCase } from '../componentes/AddCase'
-
-
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/userContext'
 

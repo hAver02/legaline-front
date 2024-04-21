@@ -1,5 +1,5 @@
 
-import {set, useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginReques } from '../api/auth'
 import { useContext, useEffect, useState } from 'react'
@@ -18,7 +18,6 @@ export function Login () {
             }, 3000)
         }
     }, [loginError])
-
 
     return (
         <div className='container-login flex h-4/5 w-3/6 m-auto py-10'>
@@ -39,7 +38,7 @@ export function Login () {
                             setLoginError(rta.data.message.toUpperCase())
                         }
                     } catch (error) {
-                        setLoginError('error al ingresar a la cuenta')
+                        setLoginError('Error al ingresar a la cuenta')
                     }
             })}>
                 <div className='login-datos flex flex-col gap-3 pt-10'>
