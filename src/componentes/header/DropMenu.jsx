@@ -48,7 +48,7 @@ export function DropMenu () {
                 </svg>
             </button>
         {isOpen && (
-            <div className="options absolute top-full right-0 bg-gray-600 w-[250px] flex flex-col opacity-0">
+            <div className="options absolute z-10 top-full right-0 bg-gray-600 w-[250px] flex flex-col opacity-0">
                 <button className="option px-5 py-3 bg-gray-600 text-blue-500 cursor-pointer hover:text-green-400" 
                     onClick={() => {
                         setAgregarAmigo(true) 
@@ -71,7 +71,7 @@ export function DropMenu () {
         )}
 
         {agregarAmigo && (
-                    <form className="add-friend-form absolute top-full right-0 bg-gray-600 flex flex-col gap-3 items-center w-[250px] py-3" 
+                    <form className="add-friend-form absolute top-full right-0 z-10 bg-gray-600 flex flex-col gap-3 items-center w-[250px] py-3" 
                         onSubmit={handleSubmit(async (values) => {
                             const rta = await addFriend(values.emailFriend)
                             if (!rta.data.ok) setError(true)

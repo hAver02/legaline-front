@@ -10,7 +10,6 @@ export function useListaCasos ({searchCaso, tipoCasoSearch}){
     const {casos} = useContext(CasosContext)
     const {setMessagesForChat, messagesForChat} = useContext(ChatContext)
     const { idUser } = useContext(UserContext)
-    
 
     const casosChatsMapped = casos.map(caso => (
         caso.chat

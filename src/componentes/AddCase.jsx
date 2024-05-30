@@ -50,7 +50,6 @@ export function AddCase () {
             </div>
             <form className='form-addcase flex flex-col gap-5' onSubmit={handleSubmit(async (values) => {
                 const info = {...values, tipo : tipoCaso }
-                // console.log(values);
                 const rta = await addCase(info, amigosCaso)
                 if(rta.data.ok){
                     navigate('/')

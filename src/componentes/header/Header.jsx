@@ -16,7 +16,7 @@ export function Header () {
                     setInfoCaso('')
                     setPageAlarmas(true)
                 }} className="text-center font-semibold text-4xl text-green-500"> legaLine-chAt</h2>
-                <div>
+                <div className="">
                     <DropMenu />
                 </div>
 
