@@ -45,9 +45,10 @@ export function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const email = data.get("email").toLocaleLowerCase();
-    const password = data.get("password").toLocaleLowerCase();
+    const password = data.get("password")
     const valores = { email, password }
     try {
+      console.log(valores);
         const rta = await loginReques(valores)
             if(rta.data.ok){
                 setIsAuth(true)
